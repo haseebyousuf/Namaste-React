@@ -133,9 +133,8 @@ A: - The ".parcel-cache" folder is a directory that is automatically generated d
 
 
 ## Q: What is the `dist` folder?
-A: 
-  - The `/dist` folder, short for `distribution`, is a directory commonly used to store the output or bundled files generated during the build process.
-  - The `/dist` folder typically contains the `final optimized version` of our application or project that is ready for deployment.
+A:  - The `/dist` folder, short for `distribution`, is a directory commonly used to store the output or bundled files generated during the build process.
+    - The `/dist` folder typically contains the `final optimized version` of our application or project that is ready for deployment.
 
 
 ## Q: What is `browserslist`?

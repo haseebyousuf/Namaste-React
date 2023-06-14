@@ -2,11 +2,8 @@
 
 
 ## Q: What is `NPM`?
-A: - If we want to use packages in our code, we have to use a package manager.
-   - `npm` makes it easy to share and reuse code and also makes it easy to manage different versions of code.
-   - `npm` is a standard repository for packages.
-   - `npm` alternative is `yarn`
-   - initializing npn:
+A: If we want to use packages in our code, we have to use a package manager. `npm` makes it easy to share and reuse code and also makes it easy to manage different versions of code. `npm` is a standard repository for packages. `npm` alternative is `yarn`
+  - initializing npn:
       ```
       npm init
       ```
@@ -57,8 +54,7 @@ A: `node_modules` is kind of database where all the external packages required b
 
 
 ## Q: Why not push `node_modules` to github or on production?
-A: - `node_modules` contains a lot of files and it will cost a lot of memory space if we push them on github or on production.
-   - Also, if we have `package.json` and `package-lock.json` we can recreate our node_modules using `npm install`, so there is no need to push node_modules to github.
+A: `node_modules` contains a lot of files and it will cost a lot of memory space if we push them on github or on production. Also, if we have `package.json` and `package-lock.json` we can recreate our node_modules using `npm install`, so there is no need to push node_modules to github.
 
 
 ## Q: What is `.gitignore`? What should we `add and not add` into it?
@@ -127,14 +123,11 @@ A: `5 superpowers of Parcel`:
 
 
 ## Q: What is `.parcel-cache`?
-A: - The ".parcel-cache" folder is a directory that is automatically generated during the bundling process. 
-   - It serves as a cache for storing intermediate and compiled files to speed up subsequent builds.
-   - Parcel checks the cache to see if any of the source files or dependencies have changed. If no changes are detected, Parcel retrieves the compiled assets from the cache instead of recompiling them, resulting in a faster build process.
+A: The ".parcel-cache" folder is a directory that is automatically generated during the bundling process. It serves as a cache for storing intermediate and compiled files to speed up subsequent builds. Parcel checks the cache to see if any of the source files or dependencies have changed. If no changes are detected, Parcel retrieves the compiled assets from the cache instead of recompiling them, resulting in a faster build process.
 
 
 ## Q: What is the `dist` folder?
-A:  - The `/dist` folder, short for `distribution`, is a directory commonly used to store the output or bundled files generated during the build process.
-    - The `/dist` folder typically contains the `final optimized version` of our application or project that is ready for deployment.
+A: The `/dist` folder, short for `distribution`, is a directory commonly used to store the output or bundled files generated during the build process. The `/dist` folder typically contains the `final optimized version` of our application or project that is ready for deployment.
 
 
 ## Q: What is `browserslist`?

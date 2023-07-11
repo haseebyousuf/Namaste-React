@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;300;400;600&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
+
+}
+
+.main-container {
+  margin: 0 5rem;
+
+}
+
+.header {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.logo span {
+  color: orange;
+}
+
+.nav-items ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  gap: 30;
+}
+
+.nav-items ul li {
+  font-size: 1.1rem;
+}
+
+.landing-page {
+  height: 70vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.orange {
+  color: orange;
+}
+
+.banner-img {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 20px solid orange;
+  object-fit: cover;
+}
+
+.intro {
+  display: flex;
+  padding: 0 7rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.title {
+  font-size: 3rem;
+  text-wrap: balance;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  /* text-wrap: balance; */
+  margin-bottom: 1rem;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.search-container input {
+  width: 500px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  outline: none;
+}
+
+.res-container {
+  display: flex;
+  margin: 2rem 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.res-card {
+  padding: 0.5rem;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 2rem 0rem;
+  cursor: pointer;
+  max-width: 268;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cuisines {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  text-wrap: balance;
+
+}
+
+.card-info {
+  margin-top: 1rem;
+  display: flex;
+  font-size: 0.8rem;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.delivery-time {
+  list-style: circle;
+  display: flex;
+  align-items: center;
+  gap: 1;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 1;
+}

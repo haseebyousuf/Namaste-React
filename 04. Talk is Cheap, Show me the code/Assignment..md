@@ -29,12 +29,9 @@ React compares the Virtual DOM with Real DOM. It finds out the changed nodes and
 
 
 ## Q: What is `React Fiber`?
-A: React Fiber is a concept of ReactJS that is used to render a system faster, smoother and smarter.
-The Fiber reconciler, which became the default reconciler for React 16 and above, is a complete rewrite of React’s reconciliation algorithm to solve some long-standing issues in React.
-Because Fiber is asynchronous, React can:
-- Pause, resume, and restart rendering work on components as new updates come in
-- Reuse previously completed work and even abort it if not needed
-- Split work into chunks and prioritize tasks based on importance
+A: React Fiber is an internal re-implementation of React's core algorithm introduced in React version 16. It improves the performance and responsiveness of React applications by introducing an incremental and asynchronous reconciliation process. By breaking the work into smaller units called fibers and utilizing a priority-based scheduling approach, React Fiber allows for more granular control over rendering and better handling of user interactions. This results in a smoother user experience, as it prevents UI blocking and enables React to respond quickly to user input.
+
+ 
 
 
 ## Q: What are `keys` in React?

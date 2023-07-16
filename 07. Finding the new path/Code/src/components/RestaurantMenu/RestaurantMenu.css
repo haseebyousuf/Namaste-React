@@ -1,0 +1,19 @@
+.res-menu-container {
+  display: flex;
+  width: 60%;
+  margin: auto;
+  justify-content: start;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.title-card {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.menu-container {
+  margin-top: 2rem;
+
+}

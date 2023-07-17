@@ -96,10 +96,10 @@ The rendering process consists of two distinct phases: the render phase and the 
 
    - In the render phase, React determines what updates need to be applied to the component's virtual DOM (also known as the "fiber tree") based on changes in props or state.
    - During this phase, React performs a `diffing` process, comparing the previous and current virtual DOM representations of the component to identify the minimal set of changes needed.
-   - This phase includes calling the render() method and any other lifecycle methods that are triggered during updates, such as componentDidUpdate() or getDerivedStateFromProps().
-   - The render phase is purely a "reconciliation" process and doesn't make any changes to the actual DOM.
-   - It is important to note that React collects all the updates and performs a single re-render for the component and its child components. It batches these updates together instead of rendering each component separately.
-   - By batching the updates, React avoids unnecessary re-renders and DOM manipulations.
+   - This phase includes calling the `render()` method and any other lifecycle methods that are triggered during updates, such as `componentDidUpdate()`.
+   - The render phase is purely a "reconciliation" process and `doesn't make any changes to the actual DOM`.
+   - It is important to note that React collects all the updates and performs a `single re-render` for the `component and its child components`. It `batches` these updates together instead of rendering each component separately.
+   - By batching the updates, React `avoids unnecessary re-renders and DOM manipulations`.
 
 2. Commit Phase:
    - Once the render phase is complete and the updates have been determined, React enters the commit phase.

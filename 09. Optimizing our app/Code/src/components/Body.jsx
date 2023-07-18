@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import banner from "../../assets/banner.jpg";
 import Search from "./Search";
 import RestaurantContainer from "./RestaurantContainer";
 
@@ -15,8 +14,8 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=34.0836708&lng=74.7972825&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    setResListData(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredResList(json?.data?.cards[2]?.data?.data?.cards);
+    setResListData(json?.data?.cards[1]?.data?.data?.cards);
+    setFilteredResList(json?.data?.cards[1]?.data?.data?.cards);
   };
 
   const handleFilter = (searchInput) => {

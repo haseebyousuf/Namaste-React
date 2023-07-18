@@ -1,8 +1,9 @@
 import React from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
-
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Header = () => {
+  const onlineStatus = useOnlineStatus();
   return (
     <header className='header'>
       <div className='logo-container'>
@@ -30,7 +31,10 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <div>
+      <div className='nav-data'>
+        <span className='online-status'>
+          online Status: {onlineStatus ? "🟢" : "🔴"}
+        </span>
         <AiOutlineShoppingCart size='1.5rem' />
       </div>
     </header>

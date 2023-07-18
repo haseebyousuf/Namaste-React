@@ -1,3 +1,28 @@
 .vscode
 /node_modules
 .gitignore
+/02. Igniting Our App/Code/node_modules
+/02. Igniting Our App/Code/.parcel-cache
+/02. Igniting Our App/Code/dist
+/03. Laying The Foundation/Code/node_modules
+/03. Laying The Foundation/Code/.parcel-cache
+/03. Laying The Foundation/Code/dist
+/04. Talk is Cheap, Show me the code/Code/node_modules
+/04. Talk is Cheap, Show me the code/Code/.parcel-cache
+/04. Talk is Cheap, Show me the code/Code/dist
+/05. Let's Get Hooked/Code/node_modules
+/05. Let's Get Hooked/Code/.parcel-cache
+/05. Let's Get Hooked/Code/dist
+/06. Exploring the world/Code/node_modules
+/06. Exploring the world/Code/.parcel-cache
+/06. Exploring the world/Code/dist
+/07. Finding the new path/Code/node_modules
+/07. Finding the new path/Code/.parcel-cache
+/07. Finding the new path/Code/dist
+/08. Let's get Classy/Code/node_modules
+/08. Let's get Classy/Code/.parcel-cache
+/08. Let's get Classy/Code/dist
+
+/09. Optimizing our app/Code/node_modules
+/09. Optimizing our app/Code/.parcel-cache
+/09. Optimizing our app/Code/dist

@@ -11,7 +11,6 @@ const RestaurantCard = ({ resData }) => {
     costForTwo,
     deliveryTime,
   } = resData?.data;
-  console.log(resData?.data.id);
   return (
     <div className='res-card'>
       <img

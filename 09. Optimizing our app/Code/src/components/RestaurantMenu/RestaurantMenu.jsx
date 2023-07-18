@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./RestaurantMenu.css";
 import { useParams } from "react-router-dom";
+import useFetchData from "../../utils/useFetchData";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-  const [restaurantMenu, setRestaurantMenu] = useState(null);
-  useEffect(() => {
-    getData();
-  }, []);
+  const restaurantMenu = useFetchData(resId);
 
-  const getData = async () => {
-    const data = await fetch(
-      `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=34.0836708&lng=74.7972825&restaurantId=${resId}`
-    );
-    const json = await data.json();
-    setRestaurantMenu(json?.data);
-  };
   if (!restaurantMenu) {
     return null;
   }
@@ -40,7 +31,8 @@ const RestaurantMenu = () => {
         {menuItemsData.map((item) => (
           <p key={item.card.info.id}>
             {" "}
-            {item.card.info.name} - ₹{item.card.info.price}
+            {item.card.info.name} - ₹
+            {item.card.info.price / 100 || item.card.info.defaultPrice / 100}
           </p>
         ))}
       </div>

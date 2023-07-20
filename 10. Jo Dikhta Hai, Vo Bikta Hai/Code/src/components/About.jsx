@@ -14,10 +14,10 @@ class About extends React.Component {
     console.log("parent component rendered");
 
     return (
-      <div className='about-container'>
-        <h1> About Us</h1>
-        <h2> This is About us page </h2>
-        <div className='about-card-container'>
+      <div className='flex items-center flex-col'>
+        <h1 className='text-3xl'> About Us</h1>
+        <h2 className='text-lg'> This is About us page </h2>
+        <div className='flex gap-10 p-4 '>
           {/* <User name='Haseeb' location='Kashmir' /> */}
           <UserClass name='Haseeb' location='Kashmir' />
         </div>

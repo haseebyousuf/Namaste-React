@@ -12,7 +12,7 @@ const Contact = lazy(() => import("./components/Contact"));
 
 const AppLayout = () => {
   return (
-    <div className='main-container'>
+    <div className='mx-12 '>
       <Header />
       <Outlet />
     </div>

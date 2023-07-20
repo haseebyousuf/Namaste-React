@@ -5,33 +5,33 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 const Header = () => {
   const onlineStatus = useOnlineStatus();
   return (
-    <header className='header'>
+    <header className='py-5 flex justify-between items-end'>
       <div className='logo-container'>
-        <h1 className='logo'>
+        <h1 className='text-3xl font-bold'>
           {" "}
-          Foodie<span>Fiesta</span>
+          Foodie<span className='text-[#ffa500]'>Fiesta</span>
         </h1>
       </div>
-      <div className='nav-items'>
-        <ul>
-          <li>
+      <div className='list-none flex justify-around gap-30'>
+        <ul className='list-none flex justify-around gap-20'>
+          <li className='text-lg'>
             <Link className='link' to='/'>
               Home
             </Link>
           </li>
-          <li>
+          <li className='text-lg'>
             <Link className='link' to='/about'>
               About
             </Link>
           </li>
-          <li>
+          <li className='text-lg'>
             <Link className='link' to='/contact'>
               Contact
             </Link>
           </li>
         </ul>
       </div>
-      <div className='nav-data'>
+      <div className='flex items-center gap-4'>
         <span className='online-status'>
           online Status: {onlineStatus ? "🟢" : "🔴"}
         </span>

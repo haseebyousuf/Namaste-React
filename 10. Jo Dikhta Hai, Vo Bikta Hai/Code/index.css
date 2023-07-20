@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;300;400;600&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   padding: 0;
@@ -6,9 +9,9 @@
   box-sizing: border-box;
 }
 
-body {
+/* body {
   font-family: "Roboto Mono", monospace;
-}
+} 
 
 .main-container {
   margin: 0 5rem;
@@ -84,7 +87,6 @@ body {
 .subtitle {
   font-size: 1.5rem;
   font-weight: 300;
-  /* text-wrap: balance; */
   margin-bottom: 1rem;
 }
 
@@ -224,6 +226,6 @@ body {
 
 .about-card-container {
   display: flex;
-  /* justify-content: space-between; */
   gap: 10px;
 }
+*/

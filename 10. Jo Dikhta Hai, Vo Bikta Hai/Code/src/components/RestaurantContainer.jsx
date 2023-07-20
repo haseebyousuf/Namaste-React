@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const RestaurantContainer = ({ filteredResList }) => {
   return (
-    <div className='res-container'>
+    <div className='flex justify-between my-8 flex-wrap'>
       {filteredResList ? (
         filteredResList.map((item) => (
           <Link key={item.data.id} to={"restaurant/" + item.data.id}>

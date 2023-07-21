@@ -119,7 +119,7 @@ A: In a React app, there are several ways to write CSS to style your components.
 
 In the `tailwind.config.js` file, `content`, `theme`, `extend`, and `plugins` are key sections used to customize the configuration of Tailwind CSS. Here's what each of them means:
 
-`content`:
+**`content`**:
 The `content` key allows you to specify the `files` that Tailwind CSS should `scan` to find classes used in your project. By default, Tailwind CSS scans your project's HTML, JSX, or Vue files to extract the classes. You can add additional files or directories to be scanned here. For example:
 
 ```js

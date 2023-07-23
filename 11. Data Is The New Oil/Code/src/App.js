@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useContext } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -6,16 +6,20 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./components/About";
 // import Contact from "./components/Contact";
 import Error from "./components/Error";
+import userContext from "./utils/userContext";
 import RestaurantMenu from "./components/RestaurantMenu/RestaurantMenu";
 
 const Contact = lazy(() => import("./components/Contact"));
 
 const AppLayout = () => {
+  const { loggedInUser } = useContext(userContext);
   return (
-    <div className='mx-12 '>
-      <Header />
-      <Outlet />
-    </div>
+    <userContext.Provider value={{ loggedInUser }}>
+      <div className='mx-12 '>
+        <Header />
+        <Outlet />
+      </div>
+    </userContext.Provider>
   );
 };
 const appRouter = createBrowserRouter([

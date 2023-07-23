@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import userContext from "../utils/userContext";
 const Header = () => {
+  const { loggedInUser } = useContext(userContext);
+
   const onlineStatus = useOnlineStatus();
   return (
     <header className='py-5 flex justify-between items-end'>
@@ -36,6 +39,7 @@ const Header = () => {
           online Status: {onlineStatus ? "🟢" : "🔴"}
         </span>
         <AiOutlineShoppingCart size='1.5rem' />
+        <span className='online-status'>{loggedInUser}</span>
       </div>
     </header>
   );

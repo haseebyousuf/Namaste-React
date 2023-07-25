@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./RestaurantMenu.css";
 import { useParams } from "react-router-dom";
 import useFetchData from "../../utils/useFetchData";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../utils/cartSlice";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const [showItems, setShowItems] = useState({ Recommended: true });
   const restaurantMenu = useFetchData(resId);
-
+  const dispatch = useDispatch();
   if (!restaurantMenu) {
     return null;
   }
@@ -25,7 +27,10 @@ const RestaurantMenu = () => {
         c.card.card["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  console.log(categories);
+
+  const handleAddItem = (item) => {
+    dispatch(addItem({ ...item, quantity: 1 }));
+  };
   return (
     <div className='flex w-[60%] m-auto justify-start flex-col p-4'>
       <div className=' bg-slate-100 rounded flex w-[100%] justify-between p-4'>
@@ -76,7 +81,10 @@ const RestaurantMenu = () => {
                             item.card.info.defaultPrice / 100}
                         </p>
                       </div>
-                      <button className='font-bold rounded-lg border border-green-500 p-2 px-6 w-fit h-fit hover:bg-green-400 hover:text-white'>
+                      <button
+                        className='font-bold rounded-lg border border-green-500 p-2 px-6 w-fit h-fit hover:bg-green-400 hover:text-white'
+                        onClick={() => handleAddItem(item.card.info)}
+                      >
                         ADD
                       </button>
                     </div>

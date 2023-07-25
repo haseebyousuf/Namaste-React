@@ -14,7 +14,6 @@ const useFetchData = (resId) => {
     const json = await data.json();
     setResData(json?.data);
   };
-  console.log(resData);
   return resData;
 };
 

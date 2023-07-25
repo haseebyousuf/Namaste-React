@@ -3,8 +3,10 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import userContext from "../utils/userContext";
+import { useSelector } from "react-redux";
 const Header = () => {
   const { loggedInUser } = useContext(userContext);
+  const cart = useSelector((store) => store.cart.items);
 
   const onlineStatus = useOnlineStatus();
   return (
@@ -38,7 +40,10 @@ const Header = () => {
         <span className='online-status'>
           online Status: {onlineStatus ? "🟢" : "🔴"}
         </span>
-        <AiOutlineShoppingCart size='1.5rem' />
+        <Link to='/cart' className='flex justify-between items-center gap-2'>
+          <AiOutlineShoppingCart size='1.5rem' />
+          <p className='font-bold text-lg'>({cart.length})</p>
+        </Link>
         <span className='online-status'>{loggedInUser}</span>
       </div>
     </header>

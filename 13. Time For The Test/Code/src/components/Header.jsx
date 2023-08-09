@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -6,6 +6,7 @@ import userContext from "../utils/userContext";
 import { useSelector } from "react-redux";
 const Header = () => {
   const { loggedInUser } = useContext(userContext);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const cart = useSelector((store) => store.cart.items);
 
   const onlineStatus = useOnlineStatus();
@@ -39,6 +40,25 @@ const Header = () => {
       <div className='flex items-center gap-4'>
         <span className='online-status'>
           online Status: {onlineStatus ? "🟢" : "🔴"}
+        </span>
+        <span>
+          {isLoggedIn ? (
+            <button
+              className='border border-black rounded-lg p-2 m-2 bg-gray-200'
+              name='logout'
+              onClick={() => setIsLoggedIn(false)}
+            >
+              Logout
+            </button>
+          ) : (
+            <button
+              className='border border-black rounded-lg p-2 m-2 bg-gray-200'
+              name='login'
+              onClick={() => setIsLoggedIn(true)}
+            >
+              Login
+            </button>
+          )}
         </span>
         <Link to='/cart' className='flex justify-between items-center gap-2'>
           <AiOutlineShoppingCart size='1.5rem' />

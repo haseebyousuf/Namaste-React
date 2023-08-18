@@ -6,6 +6,7 @@ const Search = ({ handleFilter }) => {
   return (
     <div className='flex justify-center align-middle mt-10'>
       <input
+        data-testid='search-input'
         className='w-96 h-12 border-2 border-black-300  px-5 text-3xlg focus:outline-none'
         type='text'
         placeholder='Search a restaurant you want...'

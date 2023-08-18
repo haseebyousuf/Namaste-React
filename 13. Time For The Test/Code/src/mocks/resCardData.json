@@ -1,0 +1,76 @@
+{
+  "id": "665489",
+  "name": "Taste by Infinity",
+  "cloudinaryImageId": "edd50346df3765b886ac273178079769",
+  "locality": "Veer Guzarbal Chattabal",
+  "areaName": "Srinagar",
+  "costForTwo": "₹300 for two",
+  "cuisines": ["Kebabs", "Biryani", "Desserts", "Snacks"],
+  "avgRating": 3.7,
+  "feeDetails": {
+    "restaurantId": "665489",
+    "fees": [
+      {
+        "name": "BASE_DISTANCE"
+      },
+      {
+        "name": "BASE_TIME"
+      },
+      {
+        "name": "ANCILLARY_SURGE_FEE"
+      }
+    ]
+  },
+  "parentId": "398999",
+  "avgRatingString": "3.7",
+  "totalRatingsString": "50+",
+  "sla": {
+    "deliveryTime": 20,
+    "lastMileTravel": 1.4,
+    "serviceability": "SERVICEABLE",
+    "slaString": "20 mins",
+    "lastMileTravelString": "1.4 km",
+    "iconType": "ICON_TYPE_EMPTY"
+  },
+  "availability": {
+    "nextCloseTime": "2023-08-09 23:00:00",
+    "opened": true
+  },
+  "badges": {},
+  "isOpen": true,
+  "type": "F",
+  "badgesV2": {
+    "entityBadges": {
+      "imageBased": {},
+      "textBased": {},
+      "textExtendedBadges": {}
+    }
+  },
+  "aggregatedDiscountInfoV3": {
+    "header": "20% OFF",
+    "subHeader": "UPTO ₹50",
+    "discountCalloutInfo": {
+      "message": "Free Delivery",
+      "logoCtx": {
+        "logo": "v1655895371/free_delivery_logo_hqipbo.png"
+      }
+    }
+  },
+  "orderabilityCommunication": {
+    "title": {},
+    "subTitle": {},
+    "message": {},
+    "customIcon": {}
+  },
+  "differentiatedUi": {
+    "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+    "differentiatedUiMediaDetails": {
+      "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+      "lottie": {},
+      "video": {}
+    }
+  },
+  "reviewsSummary": {},
+  "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+  "restaurantOfferPresentationInfo": {}
+}

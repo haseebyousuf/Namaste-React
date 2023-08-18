@@ -3,16 +3,13 @@ import CDN_URL from "../utils/constants";
 import { AiOutlineStar } from "react-icons/ai";
 
 const RestaurantCard = ({ resData }) => {
-  const {
-    cloudinaryImageId,
-    name,
-    avgRating,
-    cuisines,
-    costForTwo,
-    deliveryTime,
-  } = resData?.data;
+  const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, sla } =
+    resData;
   return (
-    <div className='rounded p-4 border-black-100  my-8 cursor-pointer flex flex-col justify-between  bg-gray-100 hover:bg-gray-200'>
+    <div
+      data-testid='res-card'
+      className='rounded p-4 border-black-100  my-8 cursor-pointer flex flex-col justify-between  bg-gray-100 hover:bg-gray-200'
+    >
       <img
         className='rounded'
         src={CDN_URL + cloudinaryImageId}
@@ -28,9 +25,9 @@ const RestaurantCard = ({ resData }) => {
           {avgRating}
         </p>
         <li className='flex list-disc items-center gap-1'>
-          {deliveryTime} Mins
+          {sla.deliveryTime} Mins
         </li>
-        <li className='cost-for-two'> ₹{costForTwo / 100} FOR TWO</li>
+        <li className='cost-for-two'> {costForTwo} </li>
       </div>
     </div>
   );

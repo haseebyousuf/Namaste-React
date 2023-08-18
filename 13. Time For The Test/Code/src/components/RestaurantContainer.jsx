@@ -10,11 +10,11 @@ const RestaurantContainer = ({ filteredResList }) => {
     <div className='flex justify-between my-8 flex-wrap'>
       {filteredResList ? (
         filteredResList.map((item) => (
-          <Link key={item.data.id} to={"restaurant/" + item.data.id}>
-            {item.data.promoted ? (
-              <PromotedRestaurant resData={item} />
+          <Link key={item.info.id} to={"restaurant/" + item.info.id}>
+            {item.info.promoted ? (
+              <PromotedRestaurant resData={item?.info} />
             ) : (
-              <RestaurantCard resData={item} />
+              <RestaurantCard resData={item?.info} />
             )}
           </Link>
         ))

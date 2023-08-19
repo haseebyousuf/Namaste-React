@@ -1,8 +1,11 @@
 import "./App.css";
+import Header from "./components/Header";
+import MainContainer from "./components/MainContainer";
 function App() {
   return (
     <>
-      <h1 className='text-5xl text-red-400'>Hello Youtube</h1>
+      <Header />
+      <MainContainer />
     </>
   );
 }

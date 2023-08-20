@@ -1,9 +1,22 @@
 import logo from "../assets/logo.png";
+import menuIcon from "../assets/menu.svg";
+import { useDispatch } from "react-redux";
+import { toggleSidebar } from "../state/appSlice";
 const Header = () => {
+  const dispatch = useDispatch();
   return (
     <div className='flex items-center justify-between px-2 text-black'>
-      <div>
-        <img className='w-32' src={logo} alt='logo' />
+      <div className='flex gap-2'>
+        <img
+          className='w-10 py-0 cursor-pointer'
+          src={menuIcon}
+          alt='menu'
+          onClick={() => {
+            dispatch(toggleSidebar());
+          }}
+        />
+
+        <img className='w-32 py-0' src={logo} alt='logo' />
       </div>
       <div className='flex'>
         {/* <form className='flex'> */}

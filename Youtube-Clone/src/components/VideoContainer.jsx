@@ -17,7 +17,10 @@ const VideoContainer = () => {
   return (
     <div className='w-11/12'>
       <FilterButtons />
-      {videos && <VideoCard data={videos[0]} />}
+      <div className='flex flex-wrap justify-between'>
+        {videos &&
+          videos.map((video) => <VideoCard key={video.id} data={video} />)}
+      </div>
     </div>
   );
 };

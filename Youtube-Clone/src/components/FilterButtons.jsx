@@ -12,7 +12,7 @@ const filterList = [
 ];
 const FilterButtons = () => {
   return (
-    <div className='flex w-4/5 gap-2'>
+    <div className='flex gap-2'>
       {filterList.map((button, index) => {
         return (
           <div className='inline' key={index}>

@@ -1,13 +1,17 @@
+import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
-import VideoContainer from "./VideoContainer";
 import { useSelector } from "react-redux";
+import Header from "./Header";
 const MainContainer = () => {
   const isSidebarOpen = useSelector((store) => store.app.isSidebarOpen);
   return (
-    <div className='flex'>
-      {isSidebarOpen && <Sidebar />}
-      <VideoContainer />
-    </div>
+    <>
+      <Header />
+      <div className='flex'>
+        {isSidebarOpen && <Sidebar />}
+        <Outlet />
+      </div>
+    </>
   );
 };
 

@@ -3,8 +3,9 @@ import FilterButtons from "./FilterButtons";
 import { YOUTUBE_VIDEOS_URL } from "../utils/constants";
 import { useState } from "react";
 import VideoCard from "./VideoCard";
+import { Link } from "react-router-dom";
 
-const VideoContainer = () => {
+const VideosContainer = () => {
   const [videos, setVideos] = useState();
   useEffect(() => {
     getVideos();
@@ -19,10 +20,14 @@ const VideoContainer = () => {
       <FilterButtons />
       <div className='flex flex-wrap justify-between'>
         {videos &&
-          videos.map((video) => <VideoCard key={video.id} data={video} />)}
+          videos.map((video) => (
+            <Link key={video.id} to={`/watch?v=${video.id}`}>
+              <VideoCard data={video} />
+            </Link>
+          ))}
       </div>
     </div>
   );
 };
 
-export default VideoContainer;
+export default VideosContainer;

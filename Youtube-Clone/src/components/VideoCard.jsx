@@ -1,7 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import { formatDate } from "../utils/formatDate";
 
 const VideoCard = ({ data }) => {
-  console.log(data);
   const { snippet, statistics } = data;
   const { channelTitle, publishedAt, title, thumbnails } = snippet;
   return (

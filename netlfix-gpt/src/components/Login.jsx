@@ -11,6 +11,7 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { login } from "../state/userSlice";
+import { customErrorMessage } from "../utils/customErrorMessages";
 
 const Login = () => {
   const [isSignInFrom, setIsSignInFrom] = useState(true);
@@ -18,15 +19,15 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const email = useRef(null);
   const password = useRef(null);
-  const name = useRef();
+  const name = useRef(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handelFormSubmit = () => {
-    // setError({ ...error, message: null, isError: false });
     const message = loginValidation(
       email.current.value,
       password.current.value,
+      name.current?.value,
       isSignInFrom
     );
     setErrorMessage(message);
@@ -45,7 +46,7 @@ const Login = () => {
         })
         .catch((error) => {
           setIsLoading(false);
-          setErrorMessage(error.message);
+          setErrorMessage(customErrorMessage(error.code));
         });
     } else {
       //sign up logic
@@ -68,13 +69,12 @@ const Login = () => {
             })
             .catch((error) => {
               setIsLoading(false);
-              console.log(error);
-              setErrorMessage(error.message);
+              setErrorMessage(customErrorMessage(error.code));
             });
         })
         .catch((error) => {
           setIsLoading(false);
-          setErrorMessage(error.message);
+          setErrorMessage(customErrorMessage(error.code));
         });
     }
   };

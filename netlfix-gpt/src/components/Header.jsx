@@ -1,10 +1,18 @@
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../utils/firebase";
+import { signOut } from "firebase/auth";
+
 const Header = () => {
+  const navigate = useNavigate();
+  const isUser = useSelector((state) => state.user);
   return (
-    <div className='absolute w-full px-24 py-6 bg-gradient-to-b from-black'>
+    <div className='absolute flex items-end justify-between w-full px-10 py-6 bg-gradient-to-b from-black sm:px-24'>
       <svg
+        onClick={() => navigate("/")}
         viewBox='0 0 111 30'
         data-uia='netflix-logo'
-        className='svg-icon svg-icon-netflix-logo w-[167px] h-[45px] fill-[#e50914]'
+        className='svg-icon cursor-pointer svg-icon-netflix-logo w-24 h-11 sm:w-[167px] sm:h-[45px] fill-[#e50914]'
         aria-hidden='true'
         focusable='false'
       >
@@ -15,6 +23,23 @@ const Header = () => {
           ></path>
         </g>
       </svg>
+      {isUser && (
+        <button
+          onClick={() => {
+            signOut(auth)
+              .then(() => {
+                navigate("/");
+              })
+              .catch((error) => {
+                // An error happened.
+                navigate("/error");
+              });
+          }}
+          className='p-2 bg-[#e50914] font-bold text-white rounded-sm'
+        >
+          Sign Out
+        </button>
+      )}
     </div>
   );
 };

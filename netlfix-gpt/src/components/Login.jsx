@@ -85,7 +85,7 @@ const Login = () => {
       <div className=' flex items-center justify-center h-[100vh] bg-[rgba(0,0,0,.35)] '>
         <form
           onSubmit={(e) => e.preventDefault()}
-          className='bg-[rgba(0,0,0,.80)] p-16 mx-3  flex flex-col rounded-sm'
+          className=' bg-[rgba(0,0,0,.80)] px-5 py-10 sm:p-16 flex flex-col rounded-sm'
         >
           <h1 className='mb-6 text-4xl font-bold text-white'>
             {isSignInFrom ? "Sign In" : "Sign Up"}

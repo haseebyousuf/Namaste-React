@@ -44,3 +44,5 @@
 /13. Time For The Test/Code/dist
 /13. Time For The Test/Code/coverage
 \node_modules
+.env
+.firebase

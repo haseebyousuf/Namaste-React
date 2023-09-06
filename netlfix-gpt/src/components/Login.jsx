@@ -20,7 +20,6 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handelFormSubmit = () => {
@@ -42,7 +41,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          navigate("/browse");
         })
         .catch((error) => {
           setIsLoading(false);
@@ -65,7 +63,6 @@ const Login = () => {
             .then(() => {
               const { uid, email, displayName } = auth.currentUser;
               dispatch(login({ uid, email, displayName }));
-              navigate("/browse");
             })
             .catch((error) => {
               setIsLoading(false);
@@ -124,7 +121,7 @@ const Login = () => {
             type='submit'
             disabled={isLoading}
             onClick={handelFormSubmit}
-            className='m-2 h-12 w-80 mt-6 bg-[#e50914] rounded-sm text-white font-bold cursor-pointer disabled:bg-[#a8373d] '
+            className='m-2 h-12 w-80 mt-6 hover:bg-[rgb(193,17,25)] bg-[#e50914] rounded-sm text-white font-bold cursor-pointer disabled:bg-[#a8373d] '
           >
             {isLoading
               ? "Please Wait..."

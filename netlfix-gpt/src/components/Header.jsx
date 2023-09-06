@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div className='absolute flex items-end justify-between w-full px-10 py-6 bg-gradient-to-b from-black sm:px-24'>
       <svg
-        onClick={() => navigate("/")}
+        onClick={() => (isUser ? navigate("/browse") : navigate("/"))}
         viewBox='0 0 111 30'
         data-uia='netflix-logo'
         className='svg-icon cursor-pointer svg-icon-netflix-logo w-24 h-11 sm:w-[167px] sm:h-[45px] fill-[#e50914]'
@@ -27,15 +27,13 @@ const Header = () => {
         <button
           onClick={() => {
             signOut(auth)
-              .then(() => {
-                navigate("/");
-              })
+              .then(() => {})
               .catch((error) => {
                 // An error happened.
                 navigate("/error");
               });
           }}
-          className='p-2 bg-[#e50914] font-bold text-white rounded-sm'
+          className='px-2 py-1 hover:bg-[rgb(193,17,25)] bg-[#e50914] font-bold text-white rounded-md'
         >
           Sign Out
         </button>

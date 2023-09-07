@@ -82,13 +82,13 @@ const Login = () => {
       <div className=' flex items-center justify-center h-[100vh] bg-[rgba(0,0,0,.35)] '>
         <form
           onSubmit={(e) => e.preventDefault()}
-          className=' bg-[rgba(0,0,0,.80)] px-5 py-10 sm:p-16 flex flex-col rounded-sm'
+          className=' bg-[rgba(0,0,0,.80)] px-5 py-10 sm:p-16 flex flex-col rounded-[4px]'
         >
           <h1 className='mb-6 text-4xl font-bold text-white'>
             {isSignInFrom ? "Sign In" : "Sign Up"}
           </h1>
           {errorMessage && (
-            <div className='bg-[#e87c03] rounded-sm m-2 p-2 h-10 text-xs text-white flex items-center'>
+            <div className='bg-[#e87c03] rounded-[4px] m-2 p-2 h-10 text-xs text-white flex items-center'>
               {errorMessage}
             </div>
           )}
@@ -98,7 +98,7 @@ const Login = () => {
                 ref={name}
                 type='text'
                 placeholder='Your Name'
-                className='px-5 py-4 m-2 rounded-sm bg-[#333] h-12 w-80 outline-none text-white'
+                className='px-5 py-4 m-2 rounded-[4px] bg-[#333] h-12 w-80 outline-none text-white'
               />
               <span className='text-sm text-yellow-600 '></span>
             </>
@@ -107,7 +107,7 @@ const Login = () => {
             ref={email}
             type='text'
             placeholder='Email'
-            className='px-5 py-4 m-2 rounded-sm bg-[#333] h-12 w-80 outline-none text-white'
+            className='px-5 py-4 m-2 rounded-[4px] bg-[#333] h-12 w-80 outline-none text-white'
           />
           <span className='mx-2 text-sm text-yellow-600'></span>
 
@@ -115,13 +115,13 @@ const Login = () => {
             ref={password}
             type='password'
             placeholder='Password'
-            className='px-5 py-4 m-2 rounded-sm bg-[#333] h-12 w-80 outline-none text-white'
+            className='px-5 py-4 m-2 rounded-[4px] bg-[#333] h-12 w-80 outline-none text-white'
           />
           <button
             type='submit'
             disabled={isLoading}
             onClick={handelFormSubmit}
-            className='m-2 h-12 w-80 mt-6 hover:bg-[rgb(193,17,25)] bg-[#e50914] rounded-sm text-white font-bold cursor-pointer disabled:bg-[#a8373d] '
+            className='m-2 h-12 w-80 mt-6 hover:bg-[rgb(193,17,25)] bg-[#e50914] rounded-[4px] text-white font-bold cursor-pointer disabled:bg-[#a8373d] '
           >
             {isLoading
               ? "Please Wait..."

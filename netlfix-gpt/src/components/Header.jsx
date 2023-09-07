@@ -7,7 +7,7 @@ const Header = () => {
   const navigate = useNavigate();
   const isUser = useSelector((state) => state.user);
   return (
-    <div className='absolute flex items-end justify-between w-full px-10 py-6 bg-gradient-to-b from-black sm:px-24'>
+    <div className='absolute z-50 flex items-end justify-between w-full px-10 py-6 bg-gradient-to-b from-black sm:px-24'>
       <svg
         onClick={() => (isUser ? navigate("/browse") : navigate("/"))}
         viewBox='0 0 111 30'

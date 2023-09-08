@@ -5,6 +5,8 @@ import appStore from "./state/appStore";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Login from "./components/Login";
 import Browse from "./scenes/Browse";
+import Movies from "./scenes/Movies";
+import TvShows from "./scenes/TvShows";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -18,6 +20,16 @@ function App() {
         {
           path: "/browse",
           element: <Browse />,
+        },
+
+        {
+          path: "/movies",
+          element: <Movies />,
+        },
+
+        {
+          path: "/tvShows",
+          element: <TvShows />,
         },
       ],
     },

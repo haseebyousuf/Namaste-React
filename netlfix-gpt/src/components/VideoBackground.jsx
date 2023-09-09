@@ -18,13 +18,13 @@ const VideoBackground = ({ videoId, poster_path }) => {
           allow='accelerometer;autoplay'
         />
       </div>
-      <div className='flex flex-col items-center w-full sm:hidden h-96'>
+      <div className='flex flex-col items-center w-full pt-6 md:hidden sm:hidden h-96'>
         <img
           className='relative object-cover w-4/5 rounded-2xl'
           src={TMBD_IMAGE_URL + poster_path}
           alt=''
         />
-        <div className='absolute top-[31.5rem]'>
+        <div className='absolute top-[32.5rem]'>
           <div className='flex gap-7'>
             <button className='flex items-center justify-center gap-2 px-3 py-1 text-black bg-white rounded-[4px] hover:bg-opacity-70'>
               <BsPlayFill size={30} /> Play

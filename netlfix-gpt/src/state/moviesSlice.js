@@ -3,38 +3,62 @@ import { createSlice } from "@reduxjs/toolkit";
 const moviesSlice = createSlice({
   name: "movies",
   initialState: {
-    nowPlayingMovies: null,
-    popularMovies: null,
-    topRatedMovies: null,
-    trendingTitles: {
+    nowPlayingMovies: {
       id: 1,
+      title: "Now Playing",
+      data: null,
+    },
+    popularMovies: {
+      id: 2,
+      title: "Popular",
+      data: null,
+    },
+    topRatedMovies: {
+      id: 3,
+      title: "Top Rated",
+      data: null,
+    },
+    trendingTitles: {
+      id: 4,
       title: "Trending",
       data: null,
     },
     trendingMovies: {
-      id: 2,
+      id: 5,
       title: "Trending Movies",
       data: null,
     },
     trendingSeries: {
-      id: 3,
+      id: 6,
       title: "Trending TV Shows",
       data: null,
     },
-    nowPlayingSeries: null,
-    popularSeries: null,
-    topRatedSeries: null,
+    nowPlayingSeries: {
+      id: 7,
+      title: "Now Playing",
+      data: null,
+    },
+    popularSeries: {
+      id: 8,
+      title: "Popular",
+      data: null,
+    },
+    topRatedSeries: {
+      id: 9,
+      title: "Top Rated",
+      data: null,
+    },
     trailerVideo: null,
   },
   reducers: {
     addNowPlayingMovies: (state, action) => {
-      state.nowPlayingMovies = action.payload;
+      state.nowPlayingMovies.data = action.payload;
     },
     addPopularMovies: (state, action) => {
-      state.popularMovies = action.payload;
+      state.popularMovies.data = action.payload;
     },
     addTopRatedMovies: (state, action) => {
-      state.topRatedMovies = action.payload;
+      state.topRatedMovies.data = action.payload;
     },
     addTrendingTitles: (state, action) => {
       state.trendingTitles.data = action.payload;
@@ -46,13 +70,13 @@ const moviesSlice = createSlice({
       state.trendingSeries.data = action.payload;
     },
     addNowPlayingSeries: (state, action) => {
-      state.nowPlayingSeries = action.payload;
+      state.nowPlayingSeries.data = action.payload;
     },
     addPopularSeries: (state, action) => {
-      state.popularSeries = action.payload;
+      state.popularSeries.data = action.payload;
     },
     addTopRatedSeries: (state, action) => {
-      state.topRatedSeries = action.payload;
+      state.topRatedSeries.data = action.payload;
     },
 
     addTrailerVideo: (state, action) => {

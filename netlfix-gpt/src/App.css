@@ -9,7 +9,7 @@
   /* background: rgb(0 100 0 /0.1) !important; */
 }
 body {
-  /* overflow-x: hidden !important; */
+  overflow-x: hidden !important;
 }
 * {
   scrollbar-width: thin;

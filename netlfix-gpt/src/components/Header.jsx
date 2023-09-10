@@ -1,11 +1,14 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
 import { signOut } from "firebase/auth";
+import { SUPPORTED_LANGUAGES } from "../utils/languageConstants";
+import { changeLanguage } from "../state/configSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const path = window.location.href.split("/");
+  const dispatch = useDispatch();
   const currentPath = path[path.length - 1];
   const isUser = useSelector((state) => state.user);
   return (
@@ -53,53 +56,84 @@ const Header = () => {
               >
                 TV Shows
               </Link>
+              <Link to='/search'>
+                <button className='hidden sm:block md:block text-white px-2 py-1 border border-[#e50914] rounded-[4px] hover:bg-[rgb(193,17,25)]'>
+                  GPT Search 🚀
+                </button>
+              </Link>
             </>
           )}
         </div>
-        {isUser && (
-          <button
-            onClick={() => {
-              signOut(auth)
-                .then(() => {})
-                // eslint-disable-next-line no-unused-vars
-                .catch((error) => {
-                  // An error happened.
-                  navigate("/error");
-                });
-            }}
-            className='px-2 py-1 hover:bg-[rgb(193,17,25)] bg-[#e50914] font-bold text-white rounded-md'
-          >
-            Sign Out
-          </button>
-        )}
+        <div className='flex gap-2'>
+          {currentPath === "search" && (
+            <select
+              onChange={(e) => dispatch(changeLanguage(e.target.value))}
+              className='px-2 py-1 bg-[#333] opacity-80 font-bold text-white rounded-[4px]'
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.id} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
+
+          {isUser && (
+            <button
+              onClick={() => {
+                signOut(auth)
+                  .then(() => {})
+                  // eslint-disable-next-line no-unused-vars
+                  .catch((error) => {
+                    // An error happened.
+                    navigate("/error");
+                  });
+              }}
+              className='px-2 py-1 hover:bg-[rgb(193,17,25)] bg-[#e50914] font-bold text-white rounded-[4px]'
+            >
+              Sign Out
+            </button>
+          )}
+        </div>
       </div>
       {isUser && (
-        <div className='flex items-center justify-start h-10 gap-4 pt-4 text-white sm:hidden md:hidden'>
-          <Link
-            className={`block px-2 py-1 text-white outline outline-1 outline-gray-400 rounded-2xl sm:hidden md:hidden ${
-              currentPath === "browse" && "bg-gray-700"
-            }`}
-            to='/browse'
-          >
-            Home
-          </Link>
-          <Link
-            className={`block px-2 py-1 text-white outline outline-1 outline-gray-400 rounded-2xl sm:hidden md:hidden ${
-              currentPath === "movies" && "bg-gray-700"
-            }`}
-            to='/movies'
-          >
-            Movies
-          </Link>
-          <Link
-            className={`block px-2 py-1 text-white outline outline-1 outline-gray-400 rounded-2xl sm:hidden md:hidden ${
-              currentPath === "tvShows" && "bg-gray-700"
-            }`}
-            to='/tvShows'
-          >
-            TV Shows
-          </Link>
-        </div>
+        <>
+          <div className='flex items-center justify-start h-10 gap-2 pt-4 text-white sm:hidden md:hidden'>
+            <Link
+              className={`block px-2 py-1 text-white outline outline-1 outline-gray-400 rounded-2xl sm:hidden md:hidden ${
+                currentPath === "browse" && "bg-gray-700"
+              }`}
+              to='/browse'
+            >
+              Home
+            </Link>
+            <Link
+              className={`block px-2 py-1 text-white outline outline-1 outline-gray-400 rounded-2xl sm:hidden md:hidden ${
+                currentPath === "movies" && "bg-gray-700"
+              }`}
+              to='/movies'
+            >
+              Movies
+            </Link>
+            <Link
+              className={`block px-2 py-1 text-white outline outline-1 outline-gray-400 rounded-2xl sm:hidden md:hidden ${
+                currentPath === "tvShows" && "bg-gray-700"
+              }`}
+              to='/tvShows'
+            >
+              Shows
+            </Link>
+            <Link to='/search'>
+              <button
+                className={`block sm:hidden md:hidden text-white px-2 py-1 border border-[#e50914] rounded-2xl hover:bg-[rgb(193,17,25)] ${
+                  currentPath === "search" && "bg-[rgb(193,17,25)]"
+                }`}
+              >
+                Search 🚀
+              </button>
+            </Link>
+          </div>
+        </>
       )}
     </div>
   );

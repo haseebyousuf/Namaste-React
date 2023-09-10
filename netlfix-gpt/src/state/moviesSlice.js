@@ -48,6 +48,7 @@ const moviesSlice = createSlice({
       title: "Top Rated",
       data: null,
     },
+    gptSuggestedMovies: null,
     trailerVideo: null,
   },
   reducers: {
@@ -78,6 +79,9 @@ const moviesSlice = createSlice({
     addTopRatedSeries: (state, action) => {
       state.topRatedSeries.data = action.payload;
     },
+    addGptSuggestedMovies: (state, action) => {
+      state.gptSuggestedMovies = action.payload;
+    },
 
     addTrailerVideo: (state, action) => {
       state.trailerVideo = action.payload;
@@ -95,6 +99,7 @@ export const {
   addNowPlayingSeries,
   addPopularSeries,
   addTopRatedSeries,
+  addGptSuggestedMovies,
   addTrailerVideo,
 } = moviesSlice.actions;
 export default moviesSlice.reducer;

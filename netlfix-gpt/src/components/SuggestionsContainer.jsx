@@ -8,7 +8,7 @@ const SuggestionsContainer = () => {
   return (
     <div className='sm:flex sm:justify-center'>
       {gptSuggestedMovies && (
-        <div className='px-6 pb-6 -mt-64 h-fit sm:-mt-56 bg-gradient-to-r from-black'>
+        <div className='px-6 pb-6 -mt-80 h-fit sm:-mt-72 bg-gradient-to-r from-black'>
           <MoviesList title='Suggestions' movies={gptSuggestedMovies} />
         </div>
       )}

@@ -5,10 +5,12 @@ import { TMBD_IMAGE_URL } from "../utils/constants";
 import { IconContext } from "react-icons";
 import { BsPlayFill } from "react-icons/bs";
 import { GrCircleInformation } from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 
-const VideoBackground = ({ videoId, poster_path }) => {
+const VideoBackground = ({ videoId, poster_path, media_type }) => {
+  const navigate = useNavigate();
+  useGetMovieTrailer(videoId, media_type);
   const trailerVideo = useSelector((state) => state.movies?.trailerVideo);
-  useGetMovieTrailer(videoId);
   return (
     <>
       <div className='hidden w-screen sm:block'>
@@ -26,11 +28,21 @@ const VideoBackground = ({ videoId, poster_path }) => {
         />
         <div className='absolute top-[32.5rem]'>
           <div className='flex gap-7'>
-            <button className='flex items-center justify-center gap-2 px-3 py-1 text-black bg-white rounded-[4px] hover:bg-opacity-70'>
+            <button
+              onClick={() => {
+                navigate(`/watch/${media_type}/${videoId}`);
+              }}
+              className='flex items-center justify-center gap-2 px-4 py-1 text-black bg-white rounded-[4px] hover:bg-opacity-70'
+            >
               <BsPlayFill size={30} /> Play
             </button>
             <IconContext.Provider value={{ color: "white" }}>
-              <button className='flex items-center justify-center gap-2 px-3 py-1 text-white bg-gray-400 rounded-[4px] bg-opacity-30 hover:bg-opacity-40'>
+              <button
+                onClick={() => {
+                  navigate(`/watch/${media_type}/${videoId}`);
+                }}
+                className='flex items-center justify-center gap-2 px-3 py-1 text-white bg-gray-400 rounded-[4px] bg-opacity-60 hover:bg-opacity-80'
+              >
                 <GrCircleInformation className='text-white' size={20} /> More
                 Info
               </button>

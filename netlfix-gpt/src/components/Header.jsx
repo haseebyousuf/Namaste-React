@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../utils/firebase";
-import { signOut } from "firebase/auth";
 import { SUPPORTED_LANGUAGES } from "../utils/languageConstants";
 import { changeLanguage } from "../state/configSlice";
+import Dropdown from "./Dropdown";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -57,7 +56,7 @@ const Header = () => {
                 TV Shows
               </Link>
               <Link to='/search'>
-                <button className='hidden sm:block md:block text-white px-2 py-1 border border-[#e50914] rounded-[4px] hover:bg-[rgb(193,17,25)]'>
+                <button className='hidden sm:block md:block text-white px-2 py-1 border border-[#e50914] rounded-[4px] hover:bg-[rgb(193,17,25)] transition-transform duration-300'>
                   GPT Search 🚀
                 </button>
               </Link>
@@ -78,22 +77,7 @@ const Header = () => {
             </select>
           )}
 
-          {isUser && (
-            <button
-              onClick={() => {
-                signOut(auth)
-                  .then(() => {})
-                  // eslint-disable-next-line no-unused-vars
-                  .catch((error) => {
-                    // An error happened.
-                    navigate("/error");
-                  });
-              }}
-              className='px-2 py-1 hover:bg-[rgb(193,17,25)] bg-[#e50914] font-bold text-white rounded-[4px]'
-            >
-              Sign Out
-            </button>
-          )}
+          {isUser && <Dropdown />}
         </div>
       </div>
       {isUser && (

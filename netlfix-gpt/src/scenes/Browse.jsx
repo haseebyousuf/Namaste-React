@@ -11,15 +11,18 @@ import {
 const Browse = () => {
   useFetchMovies(
     "https://api.themoviedb.org/3/trending/movie/week?language=en-US",
-    addTrendingMovies
+    addTrendingMovies,
+    "trendingMovies"
   );
   useFetchMovies(
     "https://api.themoviedb.org/3/trending/all/week?language=en-US",
-    addTrendingTitles
+    addTrendingTitles,
+    "trendingTitles"
   );
   useFetchMovies(
     "https://api.themoviedb.org/3/trending/tv/week?language=en-US",
-    addTrendingSeries
+    addTrendingSeries,
+    "trendingSeries"
   );
   let allCategories = [];
   allCategories.push(useSelector((state) => state.movies.trendingTitles));

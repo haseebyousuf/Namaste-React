@@ -11,21 +11,24 @@ import {
 const TvShows = () => {
   useFetchMovies(
     "https://api.themoviedb.org/3/tv/on_the_air?language=en-US&page=1",
-    addNowPlayingSeries
+    addNowPlayingSeries,
+    "nowPlayingSeries"
   );
   useFetchMovies(
     "https://api.themoviedb.org/3/tv/popular?language=en-&page=1",
-    addPopularSeries
+    addPopularSeries,
+    "popularSeries"
   );
   useFetchMovies(
     "https://api.themoviedb.org/3/tv/top_rated?page=1",
-    addTopRatedSeries
+    addTopRatedSeries,
+    "topRatedSeries"
   );
   let allCategories = [];
-  allCategories.push(useSelector((state) => state.movies.nowPlayingSeries));
   allCategories.push(useSelector((state) => state.movies.topRatedSeries));
+  allCategories.push(useSelector((state) => state.movies.nowPlayingSeries));
   allCategories.push(useSelector((state) => state.movies.popularSeries));
-  const movies = useSelector((state) => state.movies.nowPlayingSeries);
+  const movies = useSelector((state) => state.movies.topRatedSeries);
   return (
     movies.data && (
       <div className='absolute '>

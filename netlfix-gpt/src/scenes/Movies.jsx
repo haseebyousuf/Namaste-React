@@ -11,15 +11,18 @@ import {
 const Movies = () => {
   useFetchMovies(
     "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
-    addNowPlayingMovies
+    addNowPlayingMovies,
+    "nowPlayingMovies"
   );
   useFetchMovies(
     "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-    addPopularMovies
+    addPopularMovies,
+    "popularMovies"
   );
   useFetchMovies(
     "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
-    addTopRatedMovies
+    addTopRatedMovies,
+    "topRatedMovies"
   );
   let allCategories = [];
   allCategories.push(useSelector((state) => state.movies.nowPlayingMovies));

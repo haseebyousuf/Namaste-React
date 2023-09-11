@@ -8,6 +8,7 @@ import Browse from "./scenes/Browse";
 import Movies from "./scenes/Movies";
 import TvShows from "./scenes/TvShows";
 import Search from "./scenes/Search";
+import Watch from "./scenes/Watch";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -35,6 +36,11 @@ function App() {
         {
           path: "/search",
           element: <Search />,
+        },
+
+        {
+          path: "/watch/:type/:id",
+          element: <Watch />,
         },
       ],
     },

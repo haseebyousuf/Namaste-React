@@ -9,6 +9,7 @@ const SearchBarContainer = () => {
   const [searchText, setSearchText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
+  const identifier = useSelector((state) => state.config.lang);
   const fetchTMBDMovie = async (movie) => {
     const response = await fetch(
       "https://api.themoviedb.org/3/search/multi?query=" +
@@ -21,7 +22,7 @@ const SearchBarContainer = () => {
       (movie) => movie.poster_path && movie.backdrop_path
     )[0];
   };
-  const identifier = useSelector((state) => state.config.lang);
+
   const handleSearchGpt = async () => {
     setIsLoading(true);
     const query =
@@ -39,11 +40,12 @@ const SearchBarContainer = () => {
     dispatch(addGptSuggestedMovies(suggestedMovies));
     setIsLoading(false);
   };
+
   return (
     <div className=' bg-fill bg-login-background'>
-      <div className=' flex items-center justify-center h-screen bg-[rgba(0,0,0,.65)] '>
-        <div className='flex flex-col items-center w-10/12 gap-2 -mt-10 sm:-mt-0 sm:w-1/2'>
-          <h1 className='mb-10 text-2xl font-extrabold text-center text-white sm:text-5xl'>
+      <div className=' flex justify-center h-screen bg-[rgba(0,0,0,.65)] '>
+        <div className='flex flex-col items-center w-10/12 gap-2 mt-48 sm:mt-32 sm:w-1/2'>
+          <h1 className='mb-6 text-2xl font-extrabold text-center text-white sm:text-5xl'>
             {lang[identifier].searchTitle}
           </h1>
 
@@ -57,7 +59,7 @@ const SearchBarContainer = () => {
             <button
               onClick={handleSearchGpt}
               disabled={isLoading}
-              className='font-extrabold text-white text-xl sm:text-lg col-span-12  sm:col-span-3 px-4 py-2 bg-[#e50914] rounded-[4px]'
+              className='font-extrabold hover:bg-[rgb(193,17,25)] text-white text-xl sm:text-lg col-span-12  sm:col-span-3 px-4 py-2 bg-[#e50914] rounded-[4px]'
             >
               {isLoading
                 ? lang[identifier].pleaseWait

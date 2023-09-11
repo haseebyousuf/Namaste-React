@@ -2,7 +2,11 @@
 import { IconContext } from "react-icons";
 import { BsPlayFill } from "react-icons/bs";
 import { GrCircleInformation } from "react-icons/gr";
-const VideoTitle = ({ title, overview }) => {
+import { useNavigate } from "react-router-dom";
+
+const VideoTitle = ({ title, overview, first_air_date, id }) => {
+  const navigate = useNavigate();
+  const type = first_air_date ? "tv" : "movie";
   return (
     <div className='hidden sm:block'>
       <div className='absolute w-screen px-6 sm:top-21 aspect-video sm:px-24 sm:py-48 bg-gradient-to-r from-black'>
@@ -11,11 +15,21 @@ const VideoTitle = ({ title, overview }) => {
           {overview}
         </p>
         <div className='flex gap-2'>
-          <button className='flex items-center justify-center gap-2 px-3 py-1 text-black bg-white rounded-[4px] hover:bg-opacity-70'>
+          <button
+            onClick={() => {
+              navigate(`/watch/${type}/${id}`);
+            }}
+            className='flex items-center justify-center gap-2 px-3 py-1 text-black bg-white rounded-[4px] hover:bg-opacity-70'
+          >
             <BsPlayFill size={30} /> Play
           </button>
           <IconContext.Provider value={{ color: "white" }}>
-            <button className='flex items-center justify-center gap-2 px-3 py-1 text-white bg-gray-400 rounded-[4px] bg-opacity-30 hover:bg-opacity-40'>
+            <button
+              onClick={() => {
+                navigate(`/watch/${type}/${id}`);
+              }}
+              className='flex items-center justify-center gap-2 px-3 py-1 text-white bg-gray-400 rounded-[4px] bg-opacity-30 hover:bg-opacity-60'
+            >
               <GrCircleInformation className='text-white' size={20} /> More Info
             </button>
           </IconContext.Provider>

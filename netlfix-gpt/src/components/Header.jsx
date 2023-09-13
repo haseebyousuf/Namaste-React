@@ -3,15 +3,37 @@ import { Link, useNavigate } from "react-router-dom";
 import { SUPPORTED_LANGUAGES } from "../utils/languageConstants";
 import { changeLanguage } from "../state/configSlice";
 import Dropdown from "./Dropdown";
+import { useEffect, useState } from "react";
 
 const Header = () => {
   const navigate = useNavigate();
+  const [isScrolled, setIsScrolled] = useState(false);
   const path = window.location.href.split("/");
   const dispatch = useDispatch();
   const currentPath = path[path.length - 1];
   const isUser = useSelector((state) => state.user);
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  ("fixed top-0 z-50 w-full px-10 py-3 transition-all duration-300 ease-in-out bg-gradient-to-b from-black sm:px-24");
+
   return (
-    <div className='absolute z-50 w-full px-10 py-3 bg-gradient-to-b from-black sm:px-24'>
+    <div
+      className={` z-50 w-full px-10 py-3 ${
+        isScrolled ? "fixed bg-black" : "absolute bg-gradient-to-b from-black"
+      } sm:px-24 transition-all duration-300 ease-in-out`}
+    >
       <div className='flex items-center justify-between'>
         <div className='flex items-center gap-4'>
           <svg
